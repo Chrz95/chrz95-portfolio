@@ -16,6 +16,9 @@ export default defineConfig({
         ),
         layovio: fileURLToPath(new URL('./projects/layovio/index.html', import.meta.url)),
         daytandem: fileURLToPath(new URL('./projects/daytandem/index.html', import.meta.url)),
+        literaryTranslator: fileURLToPath(
+          new URL('./projects/local-llm-literary-translator/index.html', import.meta.url),
+        ),
       },
     },
   },

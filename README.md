@@ -18,7 +18,7 @@ A responsive software engineering portfolio built with React 19, TypeScript, Vit
 │   │   └── ui/                      # Button, Card, Container, Section, Reveal
 │   ├── content/                    # Game description and privacy policy source
 │   ├── config/portfolio.ts          # Portfolio content and project cards
-│   ├── config/projectDetails.ts     # Layovio and DayTandem project pages
+│   ├── config/projectDetails.ts     # Product project pages and screenshots
 │   ├── hooks/useColorMode.ts        # Theme preference and persistence
 │   ├── theme/theme.ts               # Material UI theme for both modes
 │   ├── types/portfolio.ts           # Strict data interfaces
@@ -60,6 +60,8 @@ Edit `src/config/portfolio.ts`. The `Project` interface has optional `githubUrl`
 Perfectly Average has a dedicated page at `/projects/perfectly-average/` with the six supplied screenshots. Its privacy policy is at `/projects/perfectly-average/privacy-policy/`. Edit `src/content/perfectlyAveragePrivacy.md` to update the policy; the page renders that file as structured content. The developer name and contact email were filled from this portfolio's existing details.
 
 Layovio and DayTandem have dedicated pages at `/projects/layovio/` and `/projects/daytandem/`. Their card summaries are in `src/config/portfolio.ts`; their longer descriptions, features, image captions, and existing Site links are in `src/config/projectDetails.ts`. Layovio's current showcase image and DayTandem's supplied logo live under `public/images/`. No privacy policy pages were added for these projects.
+
+Local LLM Literary Translator has a dedicated page at `/projects/local-llm-literary-translator/`. Its description and features are in `src/config/projectDetails.ts`; the two supplied screenshots are under `public/images/literary-translator/`. They show an authored sample book and translations in the running desktop app. No repository or live demo URL was supplied, so the page does not show one.
 
 The contact form opens the visitor's email application with a prefilled message. It does not submit data to a server or claim delivery. To receive messages directly inside the site, add a server-side form service and explain its data handling to visitors.
 

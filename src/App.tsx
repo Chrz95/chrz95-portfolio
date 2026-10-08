@@ -38,12 +38,19 @@ export default function App() {
     );
   }
 
-  if (path === '/projects/layovio' || path === '/projects/daytandem') {
+  if (
+    path === '/projects/layovio' ||
+    path === '/projects/daytandem' ||
+    path === '/projects/local-llm-literary-translator'
+  ) {
     return (
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <ProductProject
-          projectId={path === '/projects/layovio' ? 'layovio' : 'daytandem'}
+          projectId={
+            path.slice('/projects/'.length) as
+              'layovio' | 'daytandem' | 'local-llm-literary-translator'
+          }
           mode={mode}
           onToggleMode={toggleMode}
         />

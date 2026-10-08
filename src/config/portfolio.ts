@@ -97,6 +97,19 @@ export const portfolio: PortfolioData = {
       outcomes: ['100 levels across 20 chapters', 'Puzzle Lab, daily challenges & more'],
       detailsUrl: '/projects/perfectly-average/',
     },
+    {
+      id: 'local-llm-literary-translator',
+      eyebrow: 'Independent app / Local AI & literary translation',
+      title: 'Local LLM Literary Translator',
+      description:
+        'A desktop workspace for translating books with local LM Studio models, then reviewing and refining each chunk side by side.',
+      image: '/images/literary-translator/translation-workspace.png',
+      imageAlt:
+        'Literary Translator desktop workspace showing translation setup, chunk queue, and side-by-side original and translated text',
+      tags: ['Python', 'Tkinter', 'Local LLM'],
+      outcomes: ['EPUB structure preserved', 'Resumable translation and review'],
+      detailsUrl: '/projects/local-llm-literary-translator/',
+    },
   ],
   experience: [
     {

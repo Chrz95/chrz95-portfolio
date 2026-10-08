@@ -4,7 +4,7 @@ export interface ProjectFeature {
 }
 
 export interface ProjectDetail {
-  id: 'layovio' | 'daytandem';
+  id: 'layovio' | 'daytandem' | 'local-llm-literary-translator';
   category: string;
   title: string;
   lead: string;
@@ -13,13 +13,14 @@ export interface ProjectDetail {
   imageAlt: string;
   imageCaption: string;
   logo?: string;
+  gallery?: { image: string; alt: string; caption: string }[];
   technologies: string[];
   facts: { value: string; label: string }[];
   features: ProjectFeature[];
   closingTitle: string;
   closingText: string;
-  liveUrl: string;
-  liveLabel: string;
+  liveUrl?: string;
+  liveLabel?: string;
   linkNote?: string;
 }
 
@@ -134,5 +135,65 @@ export const projectDetails: Record<ProjectDetail['id'], ProjectDetail> = {
     liveUrl: 'https://healschedule-dashboard.computerchristos.chatgpt.site',
     liveLabel: 'View DayTandem site',
     linkNote: 'The linked site uses a sign-in flow.',
+  },
+  'local-llm-literary-translator': {
+    id: 'local-llm-literary-translator',
+    category: 'INDEPENDENT APP / LOCAL AI & LITERARY TRANSLATION',
+    title: 'Local LLM Literary Translator',
+    lead: 'Your books. Your model. An entirely local workflow.',
+    overview:
+      'Literary Translator is a Python desktop app for translating EPUB, PDF, DOCX, and TXT books with models served locally by LM Studio. A side-by-side workspace brings translation, review, and editing together, one chunk at a time.',
+    image: '/images/literary-translator/translation-workspace.png',
+    imageAlt:
+      'Literary Translator interface with model selection, translation progress, a sortable chunk queue, and original and translated text',
+    imageCaption: 'Translation workspace · authored sample book and translations',
+    gallery: [
+      {
+        image: '/images/literary-translator/chunk-editor.png',
+        alt: 'Chunk editor with source text beside an editable Greek translation and a Save chunk action',
+        caption: 'Chunk editor · compare the source and revise a translation',
+      },
+    ],
+    technologies: ['Python', 'Tkinter', 'LM Studio', 'Local LLMs'],
+    facts: [
+      { value: '4', label: 'input formats: EPUB, PDF, DOCX, TXT' },
+      { value: 'Local', label: 'models served by LM Studio' },
+      { value: '4,000', label: 'maximum source characters per chunk' },
+    ],
+    features: [
+      {
+        title: 'Keep the book intact',
+        description:
+          'For EPUB, translated text replaces text nodes while preserving markup, metadata, cover, images, fonts, CSS, spine, and navigation. PDF and DOCX export as TXT.',
+      },
+      {
+        title: 'Continue where you left off',
+        description:
+          'Translate chunks in parallel, pause or resume the queue, and reopen saved books even when the input file has been renamed.',
+      },
+      {
+        title: 'Choose the right model and prompt',
+        description:
+          'Discover installed LM Studio models, switch models for selected chunks, and retranslate chunks or ranges with a default or custom literary prompt.',
+      },
+      {
+        title: 'Review every passage',
+        description:
+          'Compare source and translation side by side, edit individual chunks, and optionally proofread and inspect reported issues.',
+      },
+      {
+        title: 'Find the work that matters',
+        description:
+          'Search either language, sort the queue, combine status and review filters, and use bookmarks and labels to organize passages.',
+      },
+      {
+        title: 'Make careful changes',
+        description:
+          'Preview word replacements across translated chunks before applying them, with backups for the changed files.',
+      },
+    ],
+    closingTitle: 'A thoughtful workflow for long-form translation.',
+    closingText:
+      'The screenshots show the running desktop app with an authored sample book and sample translations. Translation quality depends on the local model you choose; PDF extraction requires a text layer.',
   },
 };

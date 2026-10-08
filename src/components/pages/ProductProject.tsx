@@ -26,7 +26,10 @@ export function ProductProject({ projectId, mode, onToggleMode }: ProductProject
         backLabel="← All projects"
       />
       <main id="main">
-        <section className={styles.hero} aria-labelledby="product-title">
+        <section
+          className={`${styles.hero} ${project.gallery ? styles.desktopAppHero : ''}`}
+          aria-labelledby="product-title"
+        >
           <Container>
             <div className={styles.heroGrid}>
               <div className={styles.heroCopy}>
@@ -46,7 +49,9 @@ export function ProductProject({ projectId, mode, onToggleMode }: ProductProject
                   Explore the project <span aria-hidden="true">↘</span>
                 </a>
               </div>
-              <figure className={`${styles.heroVisual} ${project.logo ? styles.withLogo : ''}`}>
+              <figure
+                className={`${styles.heroVisual} ${project.logo ? styles.withLogo : ''} ${project.gallery ? styles.appScreenshot : ''}`}
+              >
                 <img className={styles.heroImage} src={project.image} alt={project.imageAlt} />
                 {project.logo && (
                   <img className={styles.productLogo} src={project.logo} alt="DayTandem logo" />
@@ -91,21 +96,43 @@ export function ProductProject({ projectId, mode, onToggleMode }: ProductProject
             </div>
           </Container>
         </section>
+        {project.gallery && (
+          <section className={styles.gallerySection} aria-labelledby="gallery-title">
+            <Container>
+              <div className={styles.sectionIntro}>
+                <span className={styles.eyebrow}>A CLOSER LOOK</span>
+                <h2 id="gallery-title">Inside the workspace.</h2>
+              </div>
+              <div className={styles.galleryGrid}>
+                {project.gallery.map((item) => (
+                  <figure className={styles.galleryFigure} key={item.image}>
+                    <img src={item.image} alt={item.alt} loading="lazy" />
+                    <figcaption>{item.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </Container>
+          </section>
+        )}
         <section className={styles.closingSection} aria-labelledby="closing-title">
           <Container>
             <div className={styles.closingInner}>
-              <span className={styles.eyebrow}>EXPLORE FURTHER</span>
+              <span className={styles.eyebrow}>
+                {project.liveUrl ? 'EXPLORE FURTHER' : 'ABOUT THE APP'}
+              </span>
               <h2 id="closing-title">{project.closingTitle}</h2>
               <p>{project.closingText}</p>
-              <a
-                className={styles.visitLink}
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {project.liveLabel} <span aria-hidden="true">↗</span>
-                <span className="srOnly"> (opens in new tab)</span>
-              </a>
+              {project.liveUrl && project.liveLabel && (
+                <a
+                  className={styles.visitLink}
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {project.liveLabel} <span aria-hidden="true">↗</span>
+                  <span className="srOnly"> (opens in new tab)</span>
+                </a>
+              )}
               {project.linkNote && <small>{project.linkNote}</small>}
             </div>
           </Container>

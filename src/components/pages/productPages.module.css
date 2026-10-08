@@ -27,6 +27,9 @@
 .heroCopy h1 span {
   color: var(--blue);
 }
+.desktopAppHero .heroCopy h1 {
+  font-size: clamp(3.1rem, 5.3vw, 5.8rem);
+}
 .lead {
   font-size: clamp(1.4rem, 2.4vw, 1.9rem);
   line-height: 1.42;
@@ -84,6 +87,14 @@
   aspect-ratio: 8/5;
   object-fit: cover;
   border-radius: 14px;
+}
+.appScreenshot {
+  transform: none;
+  background: #eaf0f4;
+}
+.appScreenshot .heroImage {
+  aspect-ratio: auto;
+  object-fit: contain;
 }
 .heroVisual figcaption {
   color: var(--muted);
@@ -179,6 +190,37 @@
   font-size: 0.95rem;
   line-height: 1.68;
   margin: 0;
+}
+.gallerySection {
+  padding: clamp(70px, 9vw, 120px) 0;
+  background: var(--surface2);
+  border-block: 1px solid var(--line);
+}
+.galleryGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
+}
+.galleryFigure {
+  margin: 0;
+  width: 100%;
+  max-width: 980px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: clamp(8px, 2vw, 20px);
+  background: #eaf0f4;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.08);
+}
+.galleryFigure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.galleryFigure figcaption {
+  color: #46556a;
+  padding: 15px 8px 2px;
+  font-size: 0.88rem;
 }
 .closingSection {
   padding: clamp(90px, 11vw, 150px) 0;
