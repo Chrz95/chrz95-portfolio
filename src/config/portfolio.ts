@@ -63,14 +63,39 @@ export const portfolio: PortfolioData = {
     },
     {
       id: 'daytandem',
-      eyebrow: 'Independent product / In development',
+      eyebrow: 'Independent product / Scheduling & operations',
       title: 'DayTandem',
       description:
-        'A scheduling and business operations application for teams managing appointments, clients, employees, and payments.',
+        'A shared workspace for appointment-based teams to manage schedules, people, finances, and daily operations.',
       image: '/images/daytandem.webp',
       imageAlt: 'Abstract violet calendar layers representing scheduling',
-      tags: ['React', 'TypeScript', 'Node.js'],
-      outcomes: ['Scheduling & recurrence', 'Operations & financial workflows'],
+      tags: ['React', 'TypeScript', 'Express', 'PostgreSQL'],
+      outcomes: ['Resource-aware scheduling', 'Finance, roles & bilingual workflows'],
+      detailsUrl: '/projects/daytandem/',
+    },
+    {
+      id: 'layovio',
+      eyebrow: 'Independent product / Component library',
+      title: 'Layovio',
+      description:
+        'A collection of reusable React components and complete site templates with live playgrounds, typed APIs, and clear documentation.',
+      image: '/images/layovio/home.webp',
+      imageAlt: 'Layovio showcase homepage with a workspace interface preview',
+      tags: ['React', 'TypeScript'],
+      outcomes: ['132 component APIs', '22 site templates'],
+      detailsUrl: '/projects/layovio/',
+    },
+    {
+      id: 'perfectly-average',
+      eyebrow: 'Independent game / Number puzzles',
+      title: 'Perfectly Average',
+      description:
+        'Turn numbers into the perfect average. A calm puzzle game with clever twists, 100 levels, daily challenges, and a place to create your own puzzles.',
+      image: '/images/perfectly-average/01-home.png',
+      imageAlt: 'Perfectly Average home screen with number tiles and a purple Play button',
+      tags: ['Android', 'Puzzle game'],
+      outcomes: ['100 levels across 20 chapters', 'Puzzle Lab, daily challenges & more'],
+      detailsUrl: '/projects/perfectly-average/',
     },
   ],
   experience: [

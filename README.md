@@ -1,6 +1,6 @@
 # Christos Zacharioudakis — Portfolio
 
-A responsive, single-page software engineering portfolio built with React 19, TypeScript, Vite, Material UI, CSS Modules, and Framer Motion. It includes a persistent light/dark theme, project technology filters, an accessible email-drafting form, and a downloadable CV.
+A responsive software engineering portfolio built with React 19, TypeScript, Vite, Material UI, CSS Modules, and Framer Motion. It includes a persistent light/dark theme, project technology filters, an accessible email-drafting form, and a downloadable CV.
 
 ## Project structure
 
@@ -13,9 +13,12 @@ A responsive, single-page software engineering portfolio built with React 19, Ty
 ├── src/
 │   ├── components/
 │   │   ├── layout/                  # Header, mobile navigation, footer
+│   │   ├── pages/                   # Project details and Perfectly Average policy
 │   │   ├── sections/                # Hero, About, Skills, Projects, Experience, Contact
 │   │   └── ui/                      # Button, Card, Container, Section, Reveal
-│   ├── config/portfolio.ts          # All editable portfolio content
+│   ├── content/                    # Game description and privacy policy source
+│   ├── config/portfolio.ts          # Portfolio content and project cards
+│   ├── config/projectDetails.ts     # Layovio and DayTandem project pages
 │   ├── hooks/useColorMode.ts        # Theme preference and persistence
 │   ├── theme/theme.ts               # Material UI theme for both modes
 │   ├── types/portfolio.ts           # Strict data interfaces
@@ -23,6 +26,7 @@ A responsive, single-page software engineering portfolio built with React 19, Ty
 │   ├── main.tsx
 │   └── styles.css                   # Global tokens and accessibility styles
 ├── index.html                      # Title and SEO/social metadata
+├── projects/                       # Direct static routes for project pages
 ├── eslint.config.js
 ├── tsconfig.json
 └── vite.config.ts
@@ -52,6 +56,10 @@ npm run preview
 ## Update content
 
 Edit `src/config/portfolio.ts`. The `Project` interface has optional `githubUrl` and `demoUrl` fields. Add **verified, project-specific URLs** when code or a public demo becomes available; the buttons appear automatically. The professional client work in the CV has no public project URLs, so none are invented. Replace the project artwork under `public/images/` with actual screenshots if you have permission to share them; keep filenames or update the image paths in the config.
+
+Perfectly Average has a dedicated page at `/projects/perfectly-average/` with the six supplied screenshots. Its privacy policy is at `/projects/perfectly-average/privacy-policy/`. Edit `src/content/perfectlyAveragePrivacy.md` to update the policy; the page renders that file as structured content. The developer name and contact email were filled from this portfolio's existing details.
+
+Layovio and DayTandem have dedicated pages at `/projects/layovio/` and `/projects/daytandem/`. Their card summaries are in `src/config/portfolio.ts`; their longer descriptions, features, image captions, and existing Site links are in `src/config/projectDetails.ts`. Layovio's current showcase image and DayTandem's supplied logo live under `public/images/`. No privacy policy pages were added for these projects.
 
 The contact form opens the visitor's email application with a prefilled message. It does not submit data to a server or claim delivery. To receive messages directly inside the site, add a server-side form service and explain its data handling to visitors.
 

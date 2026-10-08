@@ -19,6 +19,7 @@ export interface Project {
   outcomes: string[];
   githubUrl?: string;
   demoUrl?: string;
+  detailsUrl?: string;
 }
 
 export interface Experience {

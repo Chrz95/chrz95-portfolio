@@ -1,0 +1,325 @@
+.subpageHeader {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--header);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+}
+.headerInner {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-weight: 750;
+  text-decoration: none;
+  color: var(--text);
+  white-space: nowrap;
+  font-size: 0.96rem;
+}
+.brandMark {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #0a1424;
+  font:
+    800 0.85rem ui-monospace,
+    monospace;
+  letter-spacing: -0.08em;
+}
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.backLink,
+.textLink {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+}
+.backLink {
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.backLink:hover,
+.textLink:hover {
+  text-decoration: underline;
+}
+.eyebrow {
+  color: var(--accent);
+  font:
+    700 0.8rem/1.3 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+  letter-spacing: 0.13em;
+}
+.gameHero {
+  padding: clamp(70px, 9vw, 125px) 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 80% 38%, rgba(124, 91, 202, 0.19), transparent 42%), var(--bg);
+}
+.gameHeroGrid {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: clamp(35px, 7vw, 110px);
+  align-items: center;
+}
+.gameHeroCopy h1 {
+  font-size: clamp(4.3rem, 8vw, 8rem);
+  line-height: 0.96;
+  letter-spacing: -0.08em;
+  margin: 28px 0;
+}
+.gameHeroCopy h1 em {
+  font-style: normal;
+  color: #a68de9;
+}
+.gameHeroCopy p {
+  color: var(--muted);
+  font-size: 1.06rem;
+  line-height: 1.75;
+  max-width: 610px;
+}
+.gameHeroCopy .lead {
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+  color: var(--text);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+}
+.gameHeroCopy .textLink {
+  display: inline-block;
+  margin-top: 25px;
+}
+.heroScreens {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 590px;
+  gap: 0;
+}
+.heroScreens img {
+  height: min(570px, 42vw);
+  max-height: 570px;
+  width: auto;
+  border-radius: 23px;
+  border: 6px solid var(--surface);
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.25);
+}
+.heroScreens img:first-child {
+  transform: rotate(-9deg) translate(28px, 14px);
+  position: relative;
+  z-index: 1;
+}
+.heroScreens img:last-child {
+  transform: rotate(8deg) translate(-25px, -10px);
+}
+.pageSection {
+  padding: clamp(75px, 9vw, 125px) 0;
+}
+.tinted {
+  background: var(--surface2);
+}
+.sectionIntro {
+  max-width: 700px;
+  margin-bottom: 45px;
+}
+.sectionIntro h2,
+.gameClosing h2 {
+  font-size: clamp(2.6rem, 5.4vw, 4.7rem);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  margin: 14px 0 0;
+}
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.featureCard {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 28px;
+  min-height: 270px;
+  height: 100%;
+}
+.featureCard > span {
+  color: #a68de9;
+  font:
+    700 0.8rem ui-monospace,
+    monospace;
+}
+.featureCard h3 {
+  font-size: 1.3rem;
+  letter-spacing: -0.03em;
+  margin: 23px 0 12px;
+}
+.featureCard p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+  font-size: 0.95rem;
+}
+.screenshotGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+.screenshotCard {
+  margin: 0;
+  padding: 16px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.screenshotCard img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+.screenshotCard figcaption {
+  color: var(--text);
+  font-weight: 650;
+  font-size: 0.95rem;
+  padding: 17px 6px 4px;
+}
+.gameClosing {
+  padding: clamp(90px, 11vw, 150px) 0;
+  text-align: center;
+}
+.gameClosing > div > div {
+  max-width: 740px;
+  margin: auto;
+}
+.gameClosing p {
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 24px auto;
+}
+.gameClosing .textLink {
+  display: inline-block;
+  margin-top: 10px;
+}
+.policyMain {
+  padding: clamp(60px, 8vw, 110px) 0 120px;
+}
+.policyIntro {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 50px;
+}
+.policyIntro h1 {
+  font-size: clamp(2.7rem, 5.2vw, 5.1rem);
+  line-height: 1.07;
+  letter-spacing: -0.06em;
+  margin: 16px 0 0;
+  max-width: 900px;
+}
+.policyArticle {
+  max-width: 770px;
+  padding-top: 28px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.78;
+}
+.policyArticle h2 {
+  color: var(--text);
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  line-height: 1.3;
+  letter-spacing: -0.035em;
+  margin: 49px 0 15px;
+}
+.policyArticle p {
+  margin: 17px 0;
+}
+.policyArticle p:first-child {
+  color: var(--text);
+  font-weight: 600;
+}
+.policyArticle ul {
+  padding-left: 23px;
+  margin: 16px 0 22px;
+}
+.policyArticle li {
+  padding-left: 5px;
+  margin: 8px 0;
+}
+.policyArticle li::marker {
+  color: var(--accent);
+}
+.policyArticle a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+.policyArticle strong {
+  color: var(--text);
+}
+@media (max-width: 900px) {
+  .gameHeroGrid {
+    grid-template-columns: 1fr;
+  }
+  .heroScreens {
+    min-height: 0;
+    margin-top: 25px;
+  }
+  .heroScreens img {
+    height: min(75vw, 590px);
+  }
+  .featureGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 650px) {
+  .brand span:last-child {
+    display: none;
+  }
+  .headerActions {
+    gap: 8px;
+  }
+  .gameHero {
+    padding: 70px 0 65px;
+  }
+  .gameHeroCopy h1 {
+    font-size: clamp(3.8rem, 15vw, 5.5rem);
+  }
+  .heroScreens img {
+    height: min(78vw, 450px);
+    border-width: 4px;
+    border-radius: 16px;
+  }
+  .heroScreens img:first-child {
+    transform: rotate(-6deg) translate(15px, 8px);
+  }
+  .heroScreens img:last-child {
+    transform: rotate(6deg) translate(-15px, -5px);
+  }
+  .featureGrid,
+  .screenshotGrid {
+    grid-template-columns: 1fr;
+  }
+  .featureCard {
+    min-height: 0;
+  }
+  .screenshotGrid {
+    max-width: 400px;
+    margin-inline: auto;
+  }
+  .policyMain {
+    padding-bottom: 80px;
+  }
+}

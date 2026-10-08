@@ -9,12 +9,48 @@ import { Skills } from '@/components/sections/Skills';
 import { Projects } from '@/components/sections/Projects';
 import { Experience } from '@/components/sections/Experience';
 import { Contact } from '@/components/sections/Contact';
+import { PerfectlyAverage } from '@/components/pages/PerfectlyAverage';
+import { PrivacyPolicy } from '@/components/pages/PrivacyPolicy';
+import { ProductProject } from '@/components/pages/ProductProject';
 import { useColorMode } from '@/hooks/useColorMode';
 import { createPortfolioTheme } from '@/theme/theme';
 
 export default function App() {
   const { mode, toggleMode } = useColorMode();
   const theme = useMemo(() => createPortfolioTheme(mode), [mode]);
+  const path = window.location.pathname.replace(/\/+$/, '') || '/';
+
+  if (path === '/projects/perfectly-average/privacy-policy') {
+    return (
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <PrivacyPolicy mode={mode} onToggleMode={toggleMode} />
+      </ThemeProvider>
+    );
+  }
+
+  if (path === '/projects/perfectly-average') {
+    return (
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <PerfectlyAverage mode={mode} onToggleMode={toggleMode} />
+      </ThemeProvider>
+    );
+  }
+
+  if (path === '/projects/layovio' || path === '/projects/daytandem') {
+    return (
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <ProductProject
+          projectId={path === '/projects/layovio' ? 'layovio' : 'daytandem'}
+          mode={mode}
+          onToggleMode={toggleMode}
+        />
+      </ThemeProvider>
+    );
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

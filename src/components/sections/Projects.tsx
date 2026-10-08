@@ -54,6 +54,11 @@ function ProjectCard({ project }: { project: Project }) {
               )}
             </div>
           )}
+          {project.detailsUrl && (
+            <a className={styles.projectDetailLink} href={project.detailsUrl}>
+              Explore project <span aria-hidden="true">↗</span>
+            </a>
+          )}
         </div>
       </div>
     </SurfaceCard>

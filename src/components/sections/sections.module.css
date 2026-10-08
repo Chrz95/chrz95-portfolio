@@ -381,6 +381,16 @@
   font-size: 0.83rem;
   font-weight: 700;
 }
+.projectDetailLink {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.projectDetailLink:hover {
+  text-decoration: underline;
+}
 .projectFootnote {
   margin: 26px 0 0;
   color: var(--muted);

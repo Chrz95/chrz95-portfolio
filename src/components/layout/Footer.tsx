@@ -12,6 +12,7 @@ export function Footer() {
             <p>Software Engineer · Athens, Greece</p>
           </div>
           <div className={styles.links}>
+            <a href="/projects/perfectly-average/privacy-policy/">Perfectly Average privacy</a>
             {portfolio.socialLinks.map((link) => (
               <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
                 {link.label}
