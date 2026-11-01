@@ -62,6 +62,62 @@ export const portfolio: PortfolioData = {
       outcomes: ['Operational workflow design', 'Responsive web applications'],
     },
     {
+      id: 'folio',
+      eyebrow: 'Independent product / Personal finance',
+      title: 'Folio',
+      description:
+        'A self-hosted budget manager for transactions, recurring bills, reminders, and a clearer view of future balances.',
+      image: '/images/folio.svg',
+      imageAlt:
+        'Abstract illustration of a budget dashboard with a balance chart and transaction cards',
+      tags: ['React', 'TypeScript', 'Express', 'SQLite'],
+      outcomes: ['30, 60 & 90-day balance forecasts', 'Recurring payments and Web Push reminders'],
+      githubUrl: 'https://github.com/Chrz95/Folio/',
+      detailsUrl: '/projects/folio/',
+    },
+    {
+      id: 'linkdock',
+      eyebrow: 'Independent product / Self-hosted downloads',
+      title: 'LinkDock',
+      description:
+        'A download station for a Raspberry Pi: queue media and files from the browser, then manage transfers and the saved library from any device.',
+      image: '/images/linkdock.svg',
+      imageAlt: 'Abstract illustration of download progress cards and a file library',
+      tags: ['React', 'TypeScript', 'Node.js', 'Docker'],
+      outcomes: [
+        'Queue controls and browser companion',
+        'Video, audio, galleries, torrents & files',
+      ],
+      githubUrl: 'https://github.com/Chrz95/LinkDock-Self-Hosted-Downloader',
+      detailsUrl: '/projects/linkdock/',
+    },
+    {
+      id: 'form-workout-studio',
+      eyebrow: 'Independent product / Fitness',
+      title: 'Form — Workout Studio',
+      description:
+        'A self-hosted training companion for discovering exercises, building reusable routines, logging sets, and following progress.',
+      image: '/images/form-workout-studio.svg',
+      imageAlt: 'Abstract illustration of a workout plan with exercise rows and a progress chart',
+      tags: ['React', 'TypeScript', 'Express', 'PostgreSQL'],
+      outcomes: ['1,482 illustrated exercises', 'Live sessions and exercise progress charts'],
+      githubUrl: 'https://github.com/Chrz95/Form-Workout-Tracker',
+      detailsUrl: '/projects/form-workout-studio/',
+    },
+    {
+      id: 'resonance',
+      eyebrow: 'Independent app / Music metadata',
+      title: 'Resonance',
+      description:
+        'A Windows and Android music tagger for recognizing audio, reviewing matches, and editing metadata, lyrics, and cover art.',
+      image: '/images/resonance.svg',
+      imageAlt: 'Abstract illustration of an audio waveform, album artwork, and metadata fields',
+      tags: ['Flutter', 'Dart', 'C++'],
+      outcomes: ['Local audio fingerprinting', 'Windows and Android workflows'],
+      githubUrl: 'https://github.com/Chrz95/Resonance/',
+      detailsUrl: '/projects/resonance/',
+    },
+    {
       id: 'daytandem',
       eyebrow: 'Independent product / Scheduling & operations',
       title: 'DayTandem',

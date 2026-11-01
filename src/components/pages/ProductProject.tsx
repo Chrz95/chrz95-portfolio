@@ -3,6 +3,7 @@ import { Footer } from '@/components/layout/Footer';
 import { Reveal } from '@/components/ui/Reveal';
 import { SubpageHeader } from './SubpageHeader';
 import { projectDetails, type ProjectDetail } from '@/config/projectDetails';
+import { portfolio } from '@/config/portfolio';
 import type { ColorMode } from '@/hooks/useColorMode';
 import styles from './productPages.module.css';
 
@@ -14,6 +15,7 @@ interface ProductProjectProps {
 
 export function ProductProject({ projectId, mode, onToggleMode }: ProductProjectProps) {
   const project = projectDetails[projectId];
+  const githubUrl = portfolio.projects.find((item) => item.id === projectId)?.githubUrl;
   return (
     <>
       <a className="skipLink" href="#main">
@@ -118,7 +120,7 @@ export function ProductProject({ projectId, mode, onToggleMode }: ProductProject
           <Container>
             <div className={styles.closingInner}>
               <span className={styles.eyebrow}>
-                {project.liveUrl ? 'EXPLORE FURTHER' : 'ABOUT THE APP'}
+                {project.liveUrl || githubUrl ? 'EXPLORE FURTHER' : 'ABOUT THE APP'}
               </span>
               <h2 id="closing-title">{project.closingTitle}</h2>
               <p>{project.closingText}</p>
@@ -130,6 +132,17 @@ export function ProductProject({ projectId, mode, onToggleMode }: ProductProject
                   rel="noopener noreferrer"
                 >
                   {project.liveLabel} <span aria-hidden="true">↗</span>
+                  <span className="srOnly"> (opens in new tab)</span>
+                </a>
+              )}
+              {githubUrl && (
+                <a
+                  className={styles.visitLink}
+                  href={githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View source on GitHub <span aria-hidden="true">↗</span>
                   <span className="srOnly"> (opens in new tab)</span>
                 </a>
               )}

@@ -12,6 +12,7 @@ import { Contact } from '@/components/sections/Contact';
 import { PerfectlyAverage } from '@/components/pages/PerfectlyAverage';
 import { PrivacyPolicy } from '@/components/pages/PrivacyPolicy';
 import { ProductProject } from '@/components/pages/ProductProject';
+import { projectDetails, type ProjectDetail } from '@/config/projectDetails';
 import { useColorMode } from '@/hooks/useColorMode';
 import { createPortfolioTheme } from '@/theme/theme';
 
@@ -19,6 +20,9 @@ export default function App() {
   const { mode, toggleMode } = useColorMode();
   const theme = useMemo(() => createPortfolioTheme(mode), [mode]);
   const path = window.location.pathname.replace(/\/+$/, '') || '/';
+  const productProjectId = (Object.keys(projectDetails) as ProjectDetail['id'][]).find(
+    (id) => path === `/projects/${id}`,
+  );
 
   if (path === '/projects/perfectly-average/privacy-policy') {
     return (
@@ -38,22 +42,11 @@ export default function App() {
     );
   }
 
-  if (
-    path === '/projects/layovio' ||
-    path === '/projects/daytandem' ||
-    path === '/projects/local-llm-literary-translator'
-  ) {
+  if (productProjectId) {
     return (
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <ProductProject
-          projectId={
-            path.slice('/projects/'.length) as
-              'layovio' | 'daytandem' | 'local-llm-literary-translator'
-          }
-          mode={mode}
-          onToggleMode={toggleMode}
-        />
+        <ProductProject projectId={productProjectId} mode={mode} onToggleMode={toggleMode} />
       </ThemeProvider>
     );
   }

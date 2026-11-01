@@ -1,5 +1,6 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import Chip from '@mui/material/Chip';
+import Pagination from '@mui/material/Pagination';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
 import { Section } from '@/components/ui/Section';
@@ -8,6 +9,8 @@ import { Reveal } from '@/components/ui/Reveal';
 import { portfolio } from '@/config/portfolio';
 import type { Project } from '@/types/portfolio';
 import styles from './sections.module.css';
+
+const PROJECTS_PER_PAGE = 3;
 
 function ProjectCard({ project }: { project: Project }) {
   return (
@@ -67,6 +70,8 @@ function ProjectCard({ project }: { project: Project }) {
 
 export function Projects() {
   const [filter, setFilter] = useState('All');
+  const [page, setPage] = useState(1);
+  const gridRef = useRef<HTMLDivElement>(null);
   const filters = useMemo(
     () => ['All', ...Array.from(new Set(portfolio.projects.flatMap((project) => project.tags)))],
     [],
@@ -75,6 +80,21 @@ export function Projects() {
     () => portfolio.projects.filter((project) => filter === 'All' || project.tags.includes(filter)),
     [filter],
   );
+  const pageCount = Math.ceil(visible.length / PROJECTS_PER_PAGE);
+  const firstProject = (page - 1) * PROJECTS_PER_PAGE;
+  const currentProjects = visible.slice(firstProject, firstProject + PROJECTS_PER_PAGE);
+
+  function changePage(nextPage: number) {
+    setPage(nextPage);
+    requestAnimationFrame(() => {
+      gridRef.current?.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        block: 'start',
+      });
+      gridRef.current?.focus({ preventScroll: true });
+    });
+  }
+
   return (
     <Section
       id="projects"
@@ -89,18 +109,40 @@ export function Projects() {
             label={tag}
             color={filter === tag ? 'primary' : 'default'}
             variant={filter === tag ? 'filled' : 'outlined'}
-            onClick={() => setFilter(tag)}
+            onClick={() => {
+              setFilter(tag);
+              setPage(1);
+            }}
             aria-pressed={filter === tag}
             clickable
           />
         ))}
       </div>
-      <div className={styles.projectGrid} aria-live="polite">
-        {visible.map((project) => (
+      <div className={styles.projectGrid} ref={gridRef} tabIndex={-1}>
+        {currentProjects.map((project) => (
           <Reveal key={project.id}>
             <ProjectCard project={project} />
           </Reveal>
         ))}
+      </div>
+      <div className={styles.projectPagination}>
+        <p aria-live="polite" aria-atomic="true">
+          Showing {firstProject + 1}–{Math.min(firstProject + PROJECTS_PER_PAGE, visible.length)} of{' '}
+          {visible.length} projects
+        </p>
+        {pageCount > 1 && (
+          <Pagination
+            count={pageCount}
+            page={page}
+            onChange={(_event, nextPage) => changePage(nextPage)}
+            color="primary"
+            shape="rounded"
+            aria-label="Project pages"
+            getItemAriaLabel={(type, pageNumber) =>
+              type === 'page' ? `Go to projects page ${pageNumber}` : `Go to ${type} projects page`
+            }
+          />
+        )}
       </div>
       <p className={styles.projectFootnote}>
         More code on{' '}

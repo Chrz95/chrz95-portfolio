@@ -19,6 +19,12 @@ export default defineConfig({
         literaryTranslator: fileURLToPath(
           new URL('./projects/local-llm-literary-translator/index.html', import.meta.url),
         ),
+        folio: fileURLToPath(new URL('./projects/folio/index.html', import.meta.url)),
+        linkdock: fileURLToPath(new URL('./projects/linkdock/index.html', import.meta.url)),
+        formWorkoutStudio: fileURLToPath(
+          new URL('./projects/form-workout-studio/index.html', import.meta.url),
+        ),
+        resonance: fileURLToPath(new URL('./projects/resonance/index.html', import.meta.url)),
       },
     },
   },
